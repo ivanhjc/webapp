@@ -1,0 +1,2 @@
+A minimalist web app that provides API calls and page rendering. To start using it use Maven to package the source files
+into a jar executable and then run =java -jar <jar-file> [--server.port=<port>]=.
