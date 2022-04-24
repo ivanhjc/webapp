@@ -15,7 +15,7 @@
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily and when the file reaches 10 MegaBytes -->
-            <fileNamePattern>${logPath}/archived/spring-boot-logger-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -27,9 +27,10 @@
         <appender-ref ref="RollingFile"/>
         <appender-ref ref="Console"/>
     </root>
-
-    <logger name="net.ivanhjc" level="trace" additivity="false">
-        <appender-ref ref="Console"/>
-        <appender-ref ref="RollingFile"/>
-    </logger>
+    <logger name="net.ivanhjc" level="debug"/>
+    <!-- Use debug to turn on logging of the basic request information. Use trace to turn on logging of the
+    detailed request information-->
+    <logger name="net.ivanhjc.webapp.logging.LoggingInterceptor" level="trace"/>
+    <!--Use debug to turn on logging of the request information-->
+    <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="off"/>
 </configuration>

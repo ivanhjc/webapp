@@ -26,6 +26,9 @@ public class DemoController {
     public String helloWorld() {
         String msg = "Hello World!";
         log.info(msg);
+        log.debug(msg);
+        log.trace(msg);
+        log.warn(msg);
         log.error(msg);
         return msg;
     }
