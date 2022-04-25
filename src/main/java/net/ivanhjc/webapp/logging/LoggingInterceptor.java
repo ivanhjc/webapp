@@ -1,5 +1,7 @@
 package net.ivanhjc.webapp.logging;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.ivanhjc.utility.net.HttpRequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +28,19 @@ public class LoggingInterceptor extends HandlerInterceptorAdapter {
         }
 
         if (log.isTraceEnabled()) {
+            String parameterMap = "";
+            try {
+                ObjectMapper mapper = new ObjectMapper();
+                parameterMap = mapper.writeValueAsString(HttpRequestUtils.getParameterMap(request));
+            } catch (JsonProcessingException e) {
+                log.error("parameterMap can't be written as JSON", e);
+            }
+
             StringBuilder builder = new StringBuilder()
                     .append("Method: ").append(request.getMethod()).append("\n")
                     .append("Request URL: ").append(request.getRequestURL()).append("\n")
                     .append("Query String: ").append(request.getQueryString()).append("\n")
+                    .append("Parameter Map: ").append(parameterMap).append("\n")
                     .append("Status: ").append(response.getStatus()).append("\n")
                     .append("Headers:\n");
 

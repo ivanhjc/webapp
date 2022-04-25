@@ -1,2 +1,6 @@
-A minimalist web app that provides API calls and page rendering. To start using it use Maven to package the source files
-into a jar executable and then run =java -jar <jar-file> [--server.port=<port>]=.
+A minimalist web app that provides API calls and page rendering. To start using it use Maven to package the source files into a jar executable and then run =java -jar <jar-file> [--server.port=<port>]=.
+
+* Supported features
+1. HTTP Requests processing: Having controllers for processing HTTP requests and returning data (JSON, pages, etc.).
+2. Logging facilities: Providing a ~LoggingInterceptor~ to log requests in simple or detailed format. Including settings for ~org.springframework.web.filter.CommonsRequestLoggingFilter~ as well.
+   

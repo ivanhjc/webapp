@@ -30,7 +30,7 @@
     <logger name="net.ivanhjc" level="debug"/>
     <!-- Use debug to turn on logging of the basic request information. Use trace to turn on logging of the
     detailed request information-->
-    <logger name="net.ivanhjc.webapp.logging.LoggingInterceptor" level="trace"/>
+    <logger name="net.ivanhjc.webapp.logging.LoggingInterceptor" level="debug"/>
     <!--Use debug to turn on logging of the request information-->
     <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="off"/>
 </configuration>
